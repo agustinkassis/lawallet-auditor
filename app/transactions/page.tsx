@@ -266,7 +266,7 @@ export default function LaWalletAuditor() {
               Transacciones
             </h1>
           </div>
-          <p className='text-muted-foreground text-lg'>Validate user balances recorded on nostr relays</p>
+          <p className='text-muted-foreground text-lg'>Validate transactions recorded on nostr relays</p>
           <div className='flex items-center justify-center gap-2 text-sm text-muted-foreground'>
             <Activity className='h-4 w-4' />
             <span>Real-time Bitcoin Lightning Network auditing</span>
@@ -353,7 +353,7 @@ export default function LaWalletAuditor() {
           <div className='grid gap-4 md:grid-cols-1'>
             <Card>
               <CardHeader className='flex flex-row items-center justify-between space-y-0'>
-                <CardTitle className='text-sm font-medium'>Total Transaccionado</CardTitle>
+                <CardTitle className='text-sm font-medium'>Total Transactioned</CardTitle>
                 <div className='relative'>
                   <Bitcoin className='size-4 text-muted-foreground' />
                 </div>
@@ -368,17 +368,17 @@ export default function LaWalletAuditor() {
 
         {userTransactions.size > 0 && (
           <div className='flex justify-between items-center w-full'>
-            <h2 className='text-lg font-bold'>Transacciones ({userTransactions.size})</h2>
+            <h2 className='text-lg font-bold'>Transactions ({userTransactions.size})</h2>
             <div className='flex items-center gap-4'>
               <Select value={transactionFilter} onValueChange={(value: any) => setTransactionFilter(value)}>
                 <SelectTrigger className='w-[180px]'>
                   <SelectValue placeholder='Filtrar por tipo' />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value='all'>Todas</SelectItem>
-                  <SelectItem value='inbound'>Entrantes</SelectItem>
-                  <SelectItem value='internal'>Internas</SelectItem>
-                  <SelectItem value='outbound'>Salientes</SelectItem>
+                  <SelectItem value='all'>All</SelectItem>
+                  <SelectItem value='inbound'>Inbound</SelectItem>
+                  <SelectItem value='internal'>Internal</SelectItem>
+                  <SelectItem value='outbound'>Outbound</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -391,7 +391,7 @@ export default function LaWalletAuditor() {
               className={transactionFilter === 'all' || transactionFilter === 'inbound' ? 'opacity-100' : 'opacity-25'}
             >
               <CardHeader className='flex flex-row items-center justify-between space-y-0'>
-                <CardTitle className='text-sm font-medium'>Entrantes</CardTitle>
+                <CardTitle className='text-sm font-medium'>Inbound</CardTitle>
                 <div className='relative'>
                   <ArrowDown className='size-4 text-muted-foreground' />
                 </div>
@@ -414,7 +414,7 @@ export default function LaWalletAuditor() {
               className={transactionFilter === 'all' || transactionFilter === 'internal' ? 'opacity-100' : 'opacity-25'}
             >
               <CardHeader className='flex flex-row items-center justify-between space-y-0'>
-                <CardTitle className='text-sm font-medium'>Internas</CardTitle>
+                <CardTitle className='text-sm font-medium'>Internal</CardTitle>
                 <div className='relative'>
                   <ArrowLeftRight className='size-4 text-muted-foreground' />
                 </div>
@@ -437,7 +437,7 @@ export default function LaWalletAuditor() {
               className={transactionFilter === 'all' || transactionFilter === 'outbound' ? 'opacity-100' : 'opacity-25'}
             >
               <CardHeader className='flex flex-row items-center justify-between space-y-0'>
-                <CardTitle className='text-sm font-medium'>Salientes</CardTitle>
+                <CardTitle className='text-sm font-medium'>Outbound</CardTitle>
                 <div className='relative'>
                   <ArrowUp className='size-4 text-muted-foreground' />
                 </div>
@@ -465,8 +465,8 @@ export default function LaWalletAuditor() {
               <TableRow>
                 <TableHead className='w-4'></TableHead>
                 <TableHead>Pubkey</TableHead>
-                <TableHead>Fecha</TableHead>
-                <TableHead className='text-end'>Monto (SAT)</TableHead>
+                <TableHead>Ago</TableHead>
+                <TableHead className='text-end'>Amount (SAT)</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
